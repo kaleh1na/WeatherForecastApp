@@ -1,0 +1,9 @@
+{
+    "cities_names": [
+        "Tyumen",
+        "Petersburg",
+        "Dubai"
+    ],
+    "frequency_of_updating": 900,
+    "forecast_days": 4
+}
