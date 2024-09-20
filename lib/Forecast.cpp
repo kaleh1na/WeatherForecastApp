@@ -29,11 +29,11 @@ ftxui::Element Day::ShowDayWeather() const {
          yflex;
 }
 
-City::City(const std::string name, const uint32_t forecast_days)
+City::City(const std::string name, const uint32_t forecast_days, const std::string& api_key)
     : forecast_days(forecast_days) {
   cpr::Response r = cpr::Get(cpr::Url{"https://api.api-ninjas.com/v1/city"},
                              cpr::Parameters{{"name", name}},
-                             cpr::Header{{"X-Api-Key", kApiKey}});
+                             cpr::Header{{"X-Api-Key", api_key}});
   if (r.status_code == 200) {
     nlohmann::json js = nlohmann::json::parse(r.text);
     if (js.empty()) {
@@ -140,7 +140,7 @@ void Forecast::StartUpdating() {
   thread.detach();
 }
 
-Forecast::Forecast(const std::string &name_of_config) {
+Forecast::Forecast(const std::string &name_of_config, const std::string &api_key) {
   std::ifstream config_file(name_of_config);
   if (!config_file) {
     std::cerr << "Unable to find configuration file. Please check the path.";
@@ -162,7 +162,7 @@ Forecast::Forecast(const std::string &name_of_config) {
     frequency_of_updating = std::chrono::seconds(60);
   }
   for (int i = 0; i < cities_names.size(); ++i) {
-    City c(cities_names[i], default_forecast_days);
+    City c(cities_names[i], default_forecast_days, api_key);
     c.UpdateAllWeather();
     cities.push_back(c);
   }

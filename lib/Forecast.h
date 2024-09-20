@@ -34,7 +34,7 @@ class City {
   std::vector<Day> days;
 
  public:
-  City(const std::string city_name, const uint32_t forecast_days);
+  City(const std::string city_name, const uint32_t forecast_days, const std::string& api_key);
 
   void IncrementForecastDays();
 
@@ -55,7 +55,7 @@ class Forecast {
   void StartUpdating();
 
  public:
-  Forecast(const std::string &name_of_config);
+  Forecast(const std::string &name_of_config, const std::string &api_key);
 
   void ShowForecast();
 };

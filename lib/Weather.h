@@ -10,8 +10,6 @@
 
 namespace forecast {
 
-static const std::string kApiKey = "I4kjQyIZRd3wXAyO7TKX7w==YpCHIAcMQPJrQFpa";
-
 std::string GetDate(std::time_t time);
 
 std::string FloatToString(const float value);
