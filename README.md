@@ -35,5 +35,4 @@
 
 В качестве библиотеки для работы с JSON файлами используется [nlohmann/json](https://github.com/nlohmann/json)
 
-В качестве библиотеки для отображения работы исользуется [ftxui](https://github.com/
-ArthurSonzogni/ftxui)
+В качестве библиотеки для отображения работы исользуется [ftxui](https://github.com/ArthurSonzogni/ftxui)
